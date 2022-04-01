@@ -1,31 +1,31 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
   <div>
-     <h2>你好</h2>
+    <h2>你好</h2>
     <h2>请选择你最喜欢的城市</h2>
-    <button v-for="(item,index) in data.city" :key="index" @click="data.selectCityFun(index)">
+    <button v-for="(item,index) in girls" :key="index" @click="selectGirlFun(index)">
       {{index}}:{{item}}
     </button>
-    <div>你最喜欢的城市是:{{data.selectCity}}</div>
+    <div>你最喜欢的城市是:{{selectGirl}}</div>
   </div>
 </template>
 
 <script lang="ts">
-import { ref,reactive } from 'vue';
+import { defineComponent,ref } from 'vue';
 
-export default ({
+export default defineComponent({
   name: 'App',
   setup(){
-    const data=reactive({
-      city:['北京','上海','广州'],
-      selectCity:'',
-      selectCityFun:(index:number)=>{
-        data.selectCity=data.city[index];
-      }
-    });
+    const girls =ref(["北京","广州","杭州"])
+    const selectGirl=ref("")
+    const selectGirlFun=(index:number)=>{
+      selectGirl.value=girls.value[index];
+    }  
     return {
-      data,
-    }
+    girls,
+    selectGirl,
+    selectGirlFun,
+  }
   },
 
 });
