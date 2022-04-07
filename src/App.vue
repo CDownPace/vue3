@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import { ref,reactive } from 'vue';
+import { ref,reactive,onRenderTracked,onRenderTriggered } from 'vue';
 
 export default ({
   name: 'App',
@@ -23,12 +23,19 @@ export default ({
         data.selectCity=data.city[index];
       }
     });
+onRenderTriggered((event) => {
+  console.log("状态跟踪组件----------->");
+  console.log(event);
+})
     return {
       data,
     }
+
   },
+  
 
 });
+
 </script>
 
 <style>
