@@ -5,7 +5,7 @@
   </div>
 </template>
 <script lang="ts">
-import {nowTime,getNowTime} from './hooks/useNowTime'
+import {nowTime,getNowTime} from '../hooks/useNowTime'
 const app = {
   name: "App",
   setup() {

@@ -3,21 +3,16 @@
   <div>
      <h2>你好</h2>
     <h2>请选择你最喜欢的城市</h2>
-    <modal/>
-    <div class="wrap">
-    111
-    </div>
-    
+    <div v-if="loading">Loading...</div>
+   <img v-if="loaded" :src="result.imgUrl"/>
   </div>
 </template>
 
 <script lang="ts">
-import useUrlAxios from './hooks/useUrlAxios'
-import modal from "./components/Modal.vue"
+import useUrlAxios from '../hooks/useUrlAxios'
 
 export default ({
   name: 'App',
-  components:{modal},
   setup(){ 
     const {result,loading,loaded}= useUrlAxios("https://apiblog.jspang.com/default/getGirl")
     return {result,loading,loaded}
@@ -37,15 +32,5 @@ export default ({
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-.wrap{
-  width:400px;
-  height:400px;
-  background-color:grey;
-   position: fixed;
-  left: 50%;
-  top: 50%;
-  margin-left: -200px;
-  margin-top: -200px;
 }
 </style>
