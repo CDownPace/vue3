@@ -1,23 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div>
-     <h2>你好</h2>
-    <h2>请选择你最喜欢的城市</h2>
-    <modal/>
-    <div class="wrap">
-    111
-    </div>
-    
-  </div>
+ 
+  <TestStore/>
+  <CountButton/>
 </template>
 
 <script lang="ts">
 import useUrlAxios from './hooks/useUrlAxios'
-import modal from "./components/Modal.vue"
+import TestStore from "./components/TestStore.vue"
+import CountButton from "./components/CountButton.vue"
 
 export default ({
   name: 'App',
-  components:{modal},
+  components:{TestStore,CountButton},
   setup(){ 
     const {result,loading,loaded}= useUrlAxios("https://apiblog.jspang.com/default/getGirl")
     return {result,loading,loaded}
